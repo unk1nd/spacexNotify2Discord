@@ -24,7 +24,7 @@ while(True):
     x = requests.get(firstChecker)
     html = bs4.BeautifulSoup(x.text, features="html.parser")
 
-    # if live in title, then scrape data from api endpoint
+    # if "Watching right now" in the html for the page, then scrape data from api endpoint
     if "ser på nå" in html.prettify():
         if not isLive:
             x = requests.get(url)
